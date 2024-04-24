@@ -2,7 +2,7 @@ name: actions_test1
 on:
   schedule:
     # 定期実行する時間・・・①
-    - cron: '40 15 * * *'
+    - cron: '48 15 * * *'
 
 jobs:
   build:
@@ -12,10 +12,10 @@ jobs:
     # 実行する処理＆コマンド指定
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.8
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: 3.11
       - name: Install dependencies
         run: |
           # pip更新
@@ -25,6 +25,7 @@ jobs:
           pip install requests
           pip install openpyxl
           pip install pywin32
+          pip install datetime
 
       - name: Run script
         run: |
